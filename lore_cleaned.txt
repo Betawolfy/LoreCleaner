@@ -1,0 +1,15 @@
+```
+* Event - Testing
+* DATE - 15/12/2024 at 16:30
+* Persons - Sabrina, Ptioh
+* transcript by: btawolf
+```
+
+[ HELLO EVERYONE!]
+[ This is a demo of the lore cleaner I made for TFR!]
+----
+[ You can remove name if this is just a story line ]
+Ptioh "If this is a dialogue, don't forget to put a d at the beginning of the line!"
+[ You can put different rules, and even replace names!]
+Sabrina "Go check the result in lore_cleaned.txt!"
+* Lines like this are ignored!
