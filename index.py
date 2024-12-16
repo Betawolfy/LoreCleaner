@@ -23,6 +23,7 @@
 # import functions
 from functions.clean_text import clean_text
 from functions.add_footer import add_footer
+from functions.saveLore import save_lore
 
 # Input and output file paths
 input_file_path = 'lore.txt'  # Chemin du fichier d'entrée
@@ -36,10 +37,13 @@ add_footer(output_file_path)
 # The input file path and output file path are specified here
 # The clean_text function is called with these arguments
 if __name__ == "__main__":
+    print("Cleaning lore.txt file...")
     input_file_path = 'lore.txt'  # Chemin du fichier d'entrée
     output_file_path = 'lore_cleaned.txt'  # Chemin du fichier de sortie
     clean_text(input_file_path, output_file_path)
     add_footer(output_file_path)
+    save_lore()
+    input("Press Enter to exit...")
 
 # ----------------------------
 # End of the script
