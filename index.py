@@ -24,24 +24,35 @@
 from functions.clean_text import clean_text
 from functions.add_footer import add_footer
 from functions.saveLore import save_lore
+from functions.reconizeDialog import recognize_dialogs
+from functions.compareNames import compare_names
+
+
+# ----------------------------
 
 # Input and output file paths
 input_file_path = 'lore.txt'  # Chemin du fichier d'entrée
+uncleared_file_path = 'lore_uncleared.txt'  # Chemin du fichier de sortie
 output_file_path = 'lore_cleaned.txt'  # Chemin du fichier de sortie
 
-# Clean the text and add footer
-clean_text(input_file_path, output_file_path)
-add_footer(output_file_path)
+remove_path = 'remove.txt' # Chemin du fichier des règles de suppression
+# ----------------------------
 
 # Main function
 # The input file path and output file path are specified here
 # The clean_text function is called with these arguments
 if __name__ == "__main__":
     print("Cleaning lore.txt file...")
-    input_file_path = 'lore.txt'  # Chemin du fichier d'entrée
-    output_file_path = 'lore_cleaned.txt'  # Chemin du fichier de sortie
-    clean_text(input_file_path, output_file_path)
+
+    # Is broken. My bad, team!
+    # compare_names(input_file_path, remove_path)
+
+    recognize_dialogs(input_file_path, uncleared_file_path)
+    input("Normally, Dialogues and actions are sorted... Press Enter to continue...")
+
+    clean_text(uncleared_file_path, output_file_path)
     add_footer(output_file_path)
+
     save_lore()
     input("Press Enter to exit...")
 
