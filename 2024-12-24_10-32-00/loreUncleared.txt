@@ -1,0 +1,8 @@
+10:00[{TFR} Adm. PTIOH] [ HELLO EVERYONE!]
+10:00[{TFR} Adm. PTIOH] [ This is a demo of the lore cleaner I made for TFR!]
+----
+10:00[{TFR} Adm. PTIOH] [ You can remove name if this is just a story line ]
+10:00[{TFR} Adm. PTIOH] "If this is a dialogue, the program will put a 'd' at the beginning!"
+10:00[{TFR} Adm. Sabrina] [ You can put different rules, and even replace names!]
+10:00[{TFR} Adm. Sabrina] "Go check the result in lore_cleaned.txt!"
+* Lines like this are ignored!

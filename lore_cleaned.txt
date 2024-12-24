@@ -1,15 +1,18 @@
 ```
-* Event - Testing
-* DATE - 15/12/2024 at 16:30
-* Persons - Sabrina, Ptioh
-* transcript by: btawolf
+* Event - Update!
+* DATE - 2_/12/2024 at 1_:00
+* Persons - Ptioh, Sabrina
+* transcript by: krs with permission of sbra
+* this document has been seized by [REDACTED].
+// Made with Lore Cleaner
 ```
+
 
 [ HELLO EVERYONE!]
 [ This is a demo of the lore cleaner I made for TFR!]
 ----
 [ You can remove name if this is just a story line ]
-Ptioh "If this is a dialogue, don't forget to put a d at the beginning of the line!"
+PTioh: "If this is a dialogue, the program will put a 'd' at the beginning!"
 [ You can put different rules, and even replace names!]
-Sabrina "Go check the result in lore_cleaned.txt!"
+Sabrina: "Go check the result in lore_cleaned.txt!"
 * Lines like this are ignored!

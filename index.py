@@ -1,6 +1,6 @@
 # * Lore cleaner
 # * By: @betawolfy
-# * Version: 1.0
+# * Version: 1.1
 
 # * Made for TFR
 
@@ -19,30 +19,68 @@
 
 # ----------------------------
 
+Intro = """
+Lore Cleaner
+* By: @betawolfy
+* Version: 1.1
+* Made for TFR
+
+Before running the script:
+1. Place the your lore in the lore.txt file (make sure your respect the format of rules.)
+2. Add any strings that need to be removed to the remove.txt file
+3. Follow the instructions in the console if needed.
+"""
+
+# ----------------------------
 
 # import functions
 from functions.clean_text import clean_text
 from functions.add_footer import add_footer
 from functions.saveLore import save_lore
+from functions.reconizeDialog import recognize_dialogs
+from functions.compareNames import compare_names
+
+# ----------------------------
 
 # Input and output file paths
 input_file_path = 'lore.txt'  # Chemin du fichier d'entrée
+uncleared_file_path = 'lore_uncleared.txt'  # Chemin du fichier de sortie
 output_file_path = 'lore_cleaned.txt'  # Chemin du fichier de sortie
 
-# Clean the text and add footer
-clean_text(input_file_path, output_file_path)
-add_footer(output_file_path)
+remove_path = 'remove.txt' # Chemin du fichier des règles de suppression
+# ----------------------------
 
 # Main function
 # The input file path and output file path are specified here
 # The clean_text function is called with these arguments
 if __name__ == "__main__":
+    print(Intro)
+
+    print("--------------------")
+    input("Press Enter to continue...")
     print("Cleaning lore.txt file...")
-    input_file_path = 'lore.txt'  # Chemin du fichier d'entrée
-    output_file_path = 'lore_cleaned.txt'  # Chemin du fichier de sortie
-    clean_text(input_file_path, output_file_path)
+    
+
+    # Is broken. My bad, team!
+    # compare_names(input_file_path, remove_path)
+    
+    print("--------------------")
+    print("Sorting Dialogues and actions...")
+    recognize_dialogs(input_file_path, uncleared_file_path)
+    input("Normally, Dialogues and actions are sorted... Press Enter to continue...")
+
+    print("--------------------")
+    print("Cleaning the text...")
+    clean_text(uncleared_file_path, output_file_path)
+
+    print("--------------------")
+    print("Adding the footer...")
     add_footer(output_file_path)
+
+    print("--------------------")
     save_lore()
+
+    print("--------------------")
     input("Press Enter to exit...")
 
 # ----------------------------

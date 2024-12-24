@@ -11,8 +11,8 @@
 
 import re
 
-def clean_text(input_file_path, output_file_path):
-    with open(input_file_path, 'r', encoding='utf-8') as file:
+def clean_text(uncleared_file_path, output_file_path):
+    with open(uncleared_file_path, 'r', encoding='utf-8') as file:
         lines = file.readlines()
 
     with open('remove.txt', 'r', encoding='utf-8') as file:
@@ -26,30 +26,32 @@ def clean_text(input_file_path, output_file_path):
 
     cleaned_lines = []
     for line in lines:
-        print("--------------------")
-        print("cleaning line: ", line)
-        if not line.strip() == '----':
-            line = line.strip()
-        is_dialog = line.lstrip().startswith('d')
-        if is_dialog:
-            print("-> This is a dialog")
-            line = re.sub(r'd\d{2}:\d{2}', '', line)
-            print("-> Removing dialog IDs and timestamps")
-            for remove_str, replace_str in replace_rules.items():
-                if remove_str in line:
-                    print(f"-> Removing {remove_str} and replacing with {replace_str}")
-                    line = line.replace(remove_str, replace_str + " ")
-        else:
-            print("-> This is not a dialog")
-            line = re.sub(r'\b\d{2}:\d{2}\b', '', line)
-            print("-> Removing timestamps")
-            for remove_str in replace_rules:
-                if remove_str in line:
-                    print(f"-> Removing {remove_str}")
-                    line = line.replace(remove_str, '')
-        line = ' '.join(line.split())
-        if line.strip():
-            cleaned_lines.append(line + '\n')
+            print("--------------------")
+            print("cleaning line: ", line)
+            if not line.strip() == '----':
+                line = line.strip()
+            is_dialog = line.lstrip().startswith('d')
+            if is_dialog:
+                print("-> This is a dialog")
+                # Mise à jour du pattern pour inclure AM/PM
+                line = re.sub(r'd\d{2}:\d{2}\s*(?:AM|PM)?', '', line)
+                print("-> Removing dialog IDs and timestamps")
+                for remove_str, replace_str in replace_rules.items():
+                    if remove_str in line:
+                        print(f"-> Removing {remove_str} and replacing with {replace_str}")
+                        line = line.replace(remove_str, replace_str + " ")
+            else:
+                print("-> This is not a dialog")
+                # Mise à jour du pattern pour inclure AM/PM
+                line = re.sub(r'\b\d{2}:\d{2}\s*(?:AM|PM)?\b', '', line)
+                print("-> Removing timestamps")
+                for remove_str in replace_rules:
+                    if remove_str in line:
+                        print(f"-> Removing {remove_str}")
+                        line = line.replace(remove_str, '')
+            line = ' '.join(line.split())
+            if line.strip():
+                cleaned_lines.append(line + '\n')
 
     with open(output_file_path, 'w', encoding='utf-8') as file:
         file.writelines(cleaned_lines)
