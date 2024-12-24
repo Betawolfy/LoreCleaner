@@ -1,6 +1,6 @@
 # * Lore cleaner
 # * By: @betawolfy
-# * Version: 1.0
+# * Version: 1.1
 
 # * Made for TFR
 
@@ -22,19 +22,16 @@
 Intro = """
 Lore Cleaner
 * By: @betawolfy
-* Version: 1.0
+* Version: 1.1
 * Made for TFR
 
 Before running the script:
 1. Place the your lore in the lore.txt file (make sure your respect the format of rules.)
 2. Add any strings that need to be removed to the remove.txt file
 3. Follow the instructions in the console if needed.
-
 """
 
-
 # ----------------------------
-
 
 # import functions
 from functions.clean_text import clean_text
@@ -42,7 +39,6 @@ from functions.add_footer import add_footer
 from functions.saveLore import save_lore
 from functions.reconizeDialog import recognize_dialogs
 from functions.compareNames import compare_names
-
 
 # ----------------------------
 

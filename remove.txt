@@ -1,2 +1,2 @@
-[{TFR} Adm. Sabrina]:Sabrina
-[{TFR} Adm. PTIOH]:Ptioh
+[{TFR} Adm. Sabrina]:Sabrina: 
+[{TFR} Adm. PTIOH]:PTioh: 
